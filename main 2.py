@@ -21,8 +21,7 @@ data['Lower Band'] = data['Middle Band'] - 1.96*data['Close'].rolling(window=21)
 clf = yf.Ticker("CL=F")
 
 company_name = clf.info
-
-#print(company_name)
+# print(company_name['shortName'])
 
 df = pd.DataFrame.from_dict(data=company_name, orient='index')
 
@@ -45,7 +44,7 @@ fig.add_trace(go.Candlestick(x=data.index,
 
 # Add titles
 fig.update_layout(
-    title= ticker_name + ' live share price evolution',
+    title= company_name['shortName'] + ' - live share price evolution',
     yaxis_title='Stock Price (USD per Shares)')
 
 # X-Axes
