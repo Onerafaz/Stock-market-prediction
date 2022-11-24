@@ -25,7 +25,8 @@ company_name = clf.info
 #print(company_name)
 
 df = pd.DataFrame.from_dict(data=company_name, orient='index')
-print(df.loc[['shortName']])
+
+##print(df.loc[['shortName']])
 
 #declare figure
 fig = go.Figure()
