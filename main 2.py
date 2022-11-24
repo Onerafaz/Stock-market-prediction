@@ -13,6 +13,7 @@ import yfinance as yf
 import plotly.graph_objs as go
 
 data = yf.download(tickers='CL=F', period='20y', interval='1d')
+
 #Interval required 1 minute
 data['Middle Band'] = data['Close'].rolling(window=21).mean()
 data['Upper Band'] = data['Middle Band'] + 1.96*data['Close'].rolling(window=21).std()
@@ -23,7 +24,7 @@ clf = yf.Ticker("CL=F")
 company_name = clf.info
 # print(company_name['shortName'])
 
-df = pd.DataFrame.from_dict(data=company_name, orient='index')
+# df = pd.DataFrame.from_dict(data=company_name, orient='index')
 
 ##print(df.loc[['shortName']])
 
